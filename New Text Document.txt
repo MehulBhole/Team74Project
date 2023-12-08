@@ -1,0 +1,16 @@
+  Database name:    WaterSupplyboard
+  Collection :      WaterSupplyTime
+
+        {
+            "SectorNo":Number,
+            "SectorName":String,
+            "StartTime":"String",  (12:00)
+            "EndTime":"String",  (14:00)
+             "Remarks":String
+           } 
+
+
+
+
+
+   
