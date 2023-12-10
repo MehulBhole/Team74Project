@@ -6,7 +6,9 @@ import { Navigationbar } from "./Component/Navigationbar";
 import { Home } from "./Component/Home";
 import { UserLogin } from "./Component/UserLogin";
 import { AdminLogin } from "./Component/AdminLogin";
+import { HostLogin } from "./Component/HostLogin";
 import { AdminRegistration } from "./Component/AdminRegistration";
+import { HostApproval } from "./Component/HostApproval";
 
 function App() {
   return (
@@ -19,8 +21,9 @@ function App() {
     <Route path="/userview" element={<Userview></Userview>}></Route>
     <Route path="/userLogin" element={<UserLogin></UserLogin>}></Route>
     <Route path="/adminLogin" element={<AdminLogin></AdminLogin>}></Route>
-    <Route path="adminreg" element={<AdminRegistration></AdminRegistration>}></Route>
-    
+    <Route path="/adminreg" element={<AdminRegistration></AdminRegistration>}></Route>
+    <Route path="/hostpage" element={<HostLogin></HostLogin>}></Route>
+    <Route path="/hostapproval" element={<HostApproval></HostApproval>}></Route>
     
    </Routes>
    </BrowserRouter>

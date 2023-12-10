@@ -1,19 +1,36 @@
 import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { AdminVerify } from '../Services/Admindata';
 
 export function AdminLogin() {
-  const [admindata, setAdmindata] = useState('');
+  const [admindata, setAdmindata] = useState({Name:"",Password:""});
 
  const navigate = useNavigate();
 
-  const handleUsernameChange = (e) => {
+  const handleChange = (e) => {
     setAdmindata({...admindata,[e.target.name]:e.target.value});
+    console.log(admindata);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your login logic here
+    try {
+      
+        const response = await AdminVerify(admindata);
+        // localStorage.setItem("token",response.token);
+        console.log(response)
+        if(response.data != "Not Approved")
+        {
+        navigate(`/admin`)
+        }
+        else{
+          navigate(`/adminLogin`)
+        }
+        
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -24,23 +41,33 @@ export function AdminLogin() {
           <Form.Control
             type="text"
             placeholder="Enter your username"
-            onChange={handleUsernameChange}
+             name="Name"
+            onChange={handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="formPassword">
+        <Form.Group >
           <Form.Label>Password:</Form.Label>
-          <Form.Control type="password" placeholder="Enter your password" />
-
+          <Form.Control type="password" placeholder="Enter your password"   name="Password"  onChange={handleChange} />
+        
         </Form.Group>
+
         <br></br>
         <br></br>
-        <Button variant="success" type="submit" style={{ width: '100%' }}
-        onClick={()=>
-            {
-              navigate(`/admin`)
-            }}>
+     
+        <Button variant="primary" type="submit" style={{marginLeft:"40px"}} 
+        >
           Login
         </Button>
+        &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        <Button variant="success"  
+        onClick={()=>
+            {
+              navigate(`/adminreg`)
+            }}>
+          Signup
+        </Button>
+
+       
       </Form>
     </Container>
   );

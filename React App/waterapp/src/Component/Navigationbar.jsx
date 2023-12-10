@@ -10,7 +10,7 @@ export function Navigationbar() {
       };
     
   return (
-    <Navbar bg="light" data-bs-theme="light">
+    <Navbar bg="dark" data-bs-theme="dark">
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>
@@ -24,14 +24,14 @@ export function Navigationbar() {
           <LinkContainer to="/admin">
             <Nav.Link>Admin</Nav.Link>
           </LinkContainer>
-          <LinkContainer to="/adminreg">
-            <Nav.Link>Admin Registration</Nav.Link>
-          </LinkContainer>
           <LinkContainer to="/userLogin">
             <Nav.Link>User Login </Nav.Link>
           </LinkContainer>
           <LinkContainer to="/adminLogin">
             <Nav.Link>Admin Login </Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/hostpage">
+            <Nav.Link>Host Login </Nav.Link>
           </LinkContainer>
         </Nav>
       </Container>
