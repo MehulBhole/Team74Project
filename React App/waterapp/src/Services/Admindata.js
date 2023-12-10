@@ -4,7 +4,7 @@ import { getToken } from "../Utils/Tokenutils";
 export async function SendDataAdmin(sectorData)
 {
     try {
-        const response = await axios.post("http://127.0.0.1:4444/postData");
+        const response = await axios.post("http://127.0.0.1:4444/postData",sectorData);
         return response;
     } catch (error) {
         console.log(error);
@@ -13,7 +13,7 @@ export async function SendDataAdmin(sectorData)
 export async function FetchData()
 {
     try {
-        const response = await axios.get("http://127.0.0.1:4444/getAdmin"); 
+        const response = await axios.get("http://127.0.0.1:4444/getAdmin",{headers:{'Authorization':`Bearer ${getToken()}`}}); 
         return response.data;
     } catch (error) {
         console.log(error);
@@ -42,7 +42,7 @@ export async function FetchDatabySecNO(secNo)
 export async function UpdateDataAdmin(sectorData,secNo)
 {
     try {
-        const response = await axios.put(`http://127.0.0.1:4444/adminDataUpdate/${secNo}`,sectorData);
+        const response = await axios.put(`http://127.0.0.1:4444/adminDataUpdate/${secNo}`,sectorData,{headers:{'Authorization':`Bearer ${getToken()}`}});
         return response;
     } catch (error) {
         console.log(error);

@@ -31,26 +31,27 @@ export function AdminDataInput()
           console.log(error);
          }
    }
-   useEffect(()=>
-    {
-         populateData();
-    },[]);
+   
    const handleSubmit=async(e)=>
       {
-          
-          
+       
           try {
+            e.preventDefault();
+            console.log(sectors);
           const response = await SendDataAdmin(sectors);
-          console.log(response);
+          await populateData();
           } catch (error) {
             console.log(error);
           }
       }
-      
+      useEffect(()=>
+    {
+         populateData();
+    },[]);
     return (
-      <Container>
+      <Container style={{ marginTop: '15px' }} >
         <Form onSubmit={handleSubmit}>
-        <Row className="mb-3">
+        <Row className="mb-3" >
           <Form.Group as={Col} >
             <Form.Label>Sector Number</Form.Label>
             <Form.Control type="text" placeholder="Enter Sector Number" name="SectorNo" onKeyUp={handleInput} />
@@ -114,7 +115,7 @@ export function AdminDataInput()
           }} >Edit</Button>
           </td>
           <td>{d.Remarks}</td>
-          <td></td>
+        
         </tr>
        )}
       </tbody>

@@ -8,25 +8,30 @@ import jwt from 'jsonwebtoken';
 import { UserData } from './Userschema.js';
 import { HostData } from './HostData.js';
 
-// function verifytoken(request,response,next)
-// {
-// const header = request.get('Authorization');
-// if(header)
-// {
-//    const token = header.split(" ")[1];
-//    jwt.verify(token,"team74",(error,payload)=>
-//    {
-//       if(error)
-//       {
-//          response.send("invalid token");
-//       }
-//       else{
-//          next();
-//       }
-//    })  
+function verifytoken(request,response,next)
+{
+const header = request.get('Authorization');
+if(header)
+{
+   const token = header.split(" ")[1];
+   jwt.verify(token,"team74",(error,payload)=>
+   {
+      if(error)
+      {
+         response.send("invalid token");
+      }
+      else{
+         next();
+      }
+   })  
   
-// }
-// }
+}
+else
+{
+   response.send("NO token matched");
+}
+}
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -40,7 +45,7 @@ app.get("/getUser",async(request,response)=>
  console.log(error);
 }
 });
-app.put("/adminDataUpdate/:SecNo",async(request,response)=>
+app.put("/adminDataUpdate/:SecNo",verifytoken,async(request,response)=>
 {
    const dataUpdate = request.body;
    try {

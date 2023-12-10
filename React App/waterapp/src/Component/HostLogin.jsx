@@ -48,7 +48,7 @@ export function HostLogin() {
         <br></br>
         <br></br>
      
-        <Button variant="primary" type="submit" style={{marginLeft:"40px"}} 
+        <Button variant="primary" type="submit" style={{marginLeft:"100px"}} 
         >
           Login
         </Button>

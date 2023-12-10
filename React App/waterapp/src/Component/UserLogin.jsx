@@ -29,7 +29,7 @@ export function UserLogin() {
 
   return (
     <Container className="d-flex justify-content-center " style={{marginTop:"30px"}}>
-      <Form style={{ width: '300px', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }} onSubmit={handleSubmit}>
+      <Form style={{ width: '400px', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }} onSubmit={handleSubmit}>
         <Form.Group >
           <Form.Label>Enter Name:</Form.Label>
           <Form.Control
@@ -39,6 +39,8 @@ export function UserLogin() {
             onChange={handleUsernameChange}
           />
         </Form.Group>
+        <br></br>
+        <br></br>
         <Form.Group >
         <ReCAPTCHA  
          sitekey="6Le1RiwpAAAAAEY2hT72NG9knpE8I5IyoMWqHJWY"
