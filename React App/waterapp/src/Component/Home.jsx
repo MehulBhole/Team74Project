@@ -10,9 +10,19 @@ export function Home() {
     maxWidth: '100%',
     height: 'auto',
   };
+  const mainContainerStyle = {
+    backgroundColor: '#f2f2f2', // Set your desired background color
+    padding: '20px', // Adjust the padding as needed
+  };
 
+  const footerStyle = {
+    backgroundColor: 'black',
+    color: 'white',
+    padding: '20px',
+    marginTop: '20px',
+  };
   return (
-    <div>
+    <div style={mainContainerStyle}>
       <main>
         <Carousel fade>
           <Carousel.Item>
@@ -26,16 +36,41 @@ export function Home() {
           </Carousel.Item>
         </Carousel>
       </main>
-
-      <footer style={{ backgroundColor: "black", color: "white" }}>
+      <div style={{ padding: '20px' }}>
+        <h1>Jal Jeevan Mission</h1>
+        <p >
+          Jal Jeevan Mission is envisioned to provide safe and adequate drinking water through individual household tap connections by 2024 to all households in rural India. The program will also implement source sustainability measures as mandatory elements, such as recharge and reuse through grey water management, water conservation, rainwater harvesting. The Jal Jeevan Mission will be based on a community approach to water and will include extensive Information, Education, and communication as a key component of the mission. JJM looks to create a jan andolan for water, thereby making it everyone’s priority.
+        </p>
+      </div>
+      <div style={{ padding: '20px' }}>
+        <h1 style={{color:"blue"}}>Key Facts about our water:</h1>
+        <p>
+          Water is the most important natural resource that living things need. But at the same time, it has also been misused and wasted. To better grasp the full significance of water conservation, take a look at the few yet key facts about water:
+          <br />
+          - The average adult human body comprises 50-65 percent of water. They are averaging around 57-60 percent. Infants have a higher percentage, often around 75-78% water, dropping to 65% by one year.
+          <br />
+          - The Earth has a limited amount of water. The water we have now is all we get, recycled repeatedly. The water cycle can help you understand this condition.
+          <br />
+          - Water is the basic demand for every food. It grows our fruits and vegetables, and each livestock consumes it.
+          <br />
+          - A plant's life is dependent on water. Plants help the ecosystem and produce the oxygen necessary to keep us healthy. Trees are generally used for housing, paper, and much more.
+          <br />
+          - Ninety-seven percent (97%) of all water on Earth is saltwater- which is not suitable for drinking.
+          <br />
+          - Only three percent (3%) of water on Earth is freshwater. Only 0.5% is available and is suitable for drinking.
+          <br />
+          - The other 2.5% of freshwater is found in glaciers, ice caps, the atmosphere, soil, or under the Earth's surface or is too polluted for consumption.
+        </p>
+      </div>
+      <footer style={footerStyle}>
         <div className="col-lg-12">
           <div className="container">
             <div className="row">
               <div className="col sitefooter">
                 &nbsp; &nbsp;
-                <a href="https://jaljeevanmission.gov.in/website-policies">Website Policies</a> &nbsp; &nbsp; <img src="https://jaljeevanmission.gov.in//themes/edutheme/images/line.png" />
-                <a href="https://jaljeevanmission.gov.in/accessibility-statement">Accessibility Statement</a> <img src="https://jaljeevanmission.gov.in//themes/edutheme/images/line.png" />
-                <a href="https://jaljeevanmission.gov.in/site-map">Sitemap</a><img src="https://jaljeevanmission.gov.in//themes/edutheme/images/line.png" />
+                <a href="https://jaljeevanmission.gov.in/website-policies" style={{ color: 'white' }}>Website Policies</a> &nbsp; &nbsp; <img src="https://jaljeevanmission.gov.in//themes/edutheme/images/line.png" alt="line" />
+                <a href="https://jaljeevanmission.gov.in/accessibility-statement" style={{ color: 'white' }}>Accessibility Statement</a> <img src="https://jaljeevanmission.gov.in//themes/edutheme/images/line.png" alt="line" />
+                <a href="https://jaljeevanmission.gov.in/site-map" style={{ color: 'white' }}>Sitemap</a><img src="https://jaljeevanmission.gov.in//themes/edutheme/images/line.png" alt="line" />
               </div>
             </div>
           </div>

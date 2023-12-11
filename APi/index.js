@@ -184,10 +184,11 @@ app.post("/hostverify",async(request,response)=>
             response.send({token:token});       
          }
          else{
-            response.send("Wrong password");
+            response.send("NOTOK");
          }
       }
        } catch (error) {
+         response.send("NOTOK")
          console.log(error);
        }
 });

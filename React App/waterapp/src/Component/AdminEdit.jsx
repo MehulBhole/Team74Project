@@ -7,13 +7,10 @@ export function AdminEdit()
 {
     const param=useParams();
      const[sectors,setSector] =  useState({SectorNo:"",SectorName:"",StartTime:"",EndTime:"",Remarks:""});
-    
- 
      const handleChange=(e)=>{
          setSector({...sectors,[e.target.name]:e.target.value});
    };
    async function populateData()  {
-    
           try {
             const data =  await FetchDatabySecNO(param.secNo);
             setSector(data);

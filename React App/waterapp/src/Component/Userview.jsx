@@ -21,6 +21,7 @@ export function Userview()
           },[])
     return(
         <Container>
+           <h3 style={{ margin: 'auto', width: 'fit-content', marginBottom:"20px" ,marginTop:"10px"}}>Water Time Chart</h3>
         <Table striped bordered hover>
         <thead>
           <tr>

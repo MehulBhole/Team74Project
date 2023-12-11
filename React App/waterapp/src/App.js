@@ -9,6 +9,7 @@ import { AdminLogin } from "./Component/AdminLogin";
 import { HostLogin } from "./Component/HostLogin";
 import { AdminRegistration } from "./Component/AdminRegistration";
 import { HostApproval } from "./Component/HostApproval";
+import { Aboutus } from "./Component/Aboutus";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
     <Route path="/adminreg" element={<AdminRegistration></AdminRegistration>}></Route>
     <Route path="/hostpage" element={<HostLogin></HostLogin>}></Route>
     <Route path="/hostapproval" element={<HostApproval></HostApproval>}></Route>
+    <Route path="/aboutus" element={<Aboutus></Aboutus>}></Route>
     
    </Routes>
    </BrowserRouter>

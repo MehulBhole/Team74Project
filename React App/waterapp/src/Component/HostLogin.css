@@ -1,0 +1,27 @@
+/* HostLogin.css */
+
+.custom-host-login-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* height: 100vh; */
+  }
+  
+  .custom-host-login-form {
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-login-button {
+    margin-left: 100px;
+  }
+  
+  
+  .custom-error-alert {
+    margin-top: 10px;
+    padding: 10px; /* Add padding for better appearance */
+    font-size: 14px; /* Adjust font size as needed */
+  }
+  

@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 import { AdminRegDetails } from "../Services/Admindata";
+import { useNavigate } from "react-router-dom";
 
 export function AdminRegistration()
 { 
   const[admindetails,setDetails] = useState({Name:"",Email:"",Password:"",Designation:"",Mobile:""});
+  const navigate = useNavigate();
+  const [isSubmitted,setIsSubmitted]=useState(false);
    const handlechange=(e)=>
    {
          setDetails({...admindetails,[e.target.name]:e.target.value});
@@ -14,7 +17,12 @@ export function AdminRegistration()
       try {
         console.log(admindetails);
          const response = await AdminRegDetails(admindetails);
-         console.log(response);
+         setIsSubmitted(true);
+           setTimeout(()=>{
+            setIsSubmitted(false);
+            navigate(`/adminLogin`)
+           },1500);
+          
       } catch (error) {
         console.log(error);
       }
@@ -58,6 +66,11 @@ export function AdminRegistration()
         <Button variant="primary" onClick={submitData}>
           Submit
         </Button>
+        <Row className="mt-3">
+                <Col lg={4}>
+                    {isSubmitted?<Alert variant="success">Admin Registered</Alert>:null}
+                </Col>
+            </Row>
       </Form>
       </Container>
     );

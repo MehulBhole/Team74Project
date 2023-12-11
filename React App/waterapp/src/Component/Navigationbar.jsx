@@ -40,6 +40,9 @@ export function Navigationbar() {
           <LinkContainer to="/hostpage">
             <Nav.Link>Host Login </Nav.Link>
           </LinkContainer>
+          <LinkContainer to="/aboutus">
+            <Nav.Link>About us </Nav.Link>
+          </LinkContainer>
         </Nav>
         <Button variant="success" onClick={handlesubmit}>Log Out</Button>
       </Container>

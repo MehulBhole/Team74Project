@@ -50,7 +50,10 @@ export function AdminDataInput()
     },[]);
     return (
       <Container style={{ marginTop: '15px' }} >
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} style={{ border: '2px solid #ddd', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
+        <h3 style={{ margin: 'auto', width: 'fit-content' }}>Water Supply Time Update</h3>
+
+          <br></br>
         <Row className="mb-3" >
           <Form.Group as={Col} >
             <Form.Label>Sector Number</Form.Label>
@@ -85,6 +88,7 @@ export function AdminDataInput()
         </Button>
       </Form>
       <b><hr></hr></b>
+      <h3 style={{ margin: 'auto', width: 'fit-content', marginBottom:"20px" }}>Updated Time</h3>
       <Row className="mb-3">
 
     <Table striped bordered hover style={{textAlign:"center"}}>

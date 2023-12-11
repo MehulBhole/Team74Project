@@ -10,6 +10,7 @@ export function UserLogin() {
 
   const handleUsernameChange = (e) => {
     setUsername({...name,[e.target.name]:e.target.value});
+    console.log(name);
   };
 
   const handleSubmit = async (e) => {
@@ -29,6 +30,7 @@ export function UserLogin() {
 
   return (
     <Container className="d-flex justify-content-center " style={{marginTop:"30px"}}>
+       
       <Form style={{ width: '400px', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }} onSubmit={handleSubmit}>
         <Form.Group >
           <Form.Label>Enter Name:</Form.Label>
