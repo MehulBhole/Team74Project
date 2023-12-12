@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row} from "react-bootstrap";
 import {   FetchDatabySecNO,  UpdateDataAdmin } from "../Services/Admindata";
-import {  useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 
 export function AdminEdit()
 {
     const param=useParams();
+    const navigate = useNavigate();
      const[sectors,setSector] =  useState({SectorNo:"",SectorName:"",StartTime:"",EndTime:"",Remarks:""});
      const handleChange=(e)=>{
          setSector({...sectors,[e.target.name]:e.target.value});
@@ -30,6 +31,7 @@ export function AdminEdit()
           
           try {
           const response = await UpdateDataAdmin(sectors,param.secNo);
+      navigate(`/admin`);
           console.log(response);
           } catch (error) {
             console.log(error);

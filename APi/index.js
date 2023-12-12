@@ -40,7 +40,7 @@ app.get("/getUser",async(request,response)=>
     try {
         const data = await waterSchemaCol.find();
         response.send(data);
-        console.log(data);
+       
 } catch (error) {
  console.log(error);
 }
@@ -66,7 +66,7 @@ app.delete("/adminDataDelete/:sec",async(request,response)=>
             console.log(error);
           }
 });
-app.get("/getAdmin",async(request,response)=>
+app.get("/getAdmin",verifytoken,async(request,response)=>
 {
    try {
            const data = await waterSchemaCol.find();
@@ -136,30 +136,36 @@ app.post("/HostRegData",async(request,response)=>
    }
            
 })
-app.post("/adminverify",async(request,response)=>
-{ 
-   const admin =  await Admindata.findOne({Name:request.body.Name});
-   
-   if(admin.Flag !== 0){
-       try {
+app.post("/adminverify", async (request, response) => {
+   try {
      
-      if(admin)
-      {
-         if(bcrypt.compareSync(request.body.Password,admin.Password))
-         {
-            const token = jwt.sign({adminName:admin.Name},"team74");
-            response.send({token:token});       
-         }
-         else{
-            response.send("Wrong password");
-         }
+      if (!request.body.Name || !request.body.Password) {
+         return response.status(400).send("Bad Request");
       }
-       } catch (error) {
-         console.log(error);
-       }
-      }else{
-         response.send("Not Approved");
+
+      const admin = await Admindata.findOne({ Name: request.body.Name });
+
+      if (!admin) {
+         return response.status(401).send("Unauthorized");
       }
+
+     
+      if (admin.Flag !== 0) {
+        
+         if (bcrypt.compareSync(request.body.Password, admin.Password)) {
+           
+            const token = jwt.sign({ adminName: admin.Name }, "team74");
+            return response.send({ token: token });
+         } else {
+            return response.status(401).send("Unauthorized");
+         }
+      } else {
+         return response.status(403).send("Not Approved");
+      }
+   } catch (error) {
+      console.error("Error:", error);
+      return response.status(500).send("Internal Server Error");
+   }
 });
 app.post("/username",async (request,response)=>
 {

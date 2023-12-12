@@ -19,10 +19,11 @@ export function AdminLogin() {
       
         const response = await AdminVerify(admindata);
     
-       localStorage.setItem("token",response.data.token);
       
-        if(response.data !== "Not Approved")
+      
+        if(response.data !== "Not Approved" || response.data !== "NOTOK")
         {
+          localStorage.setItem("token",response.data.token);
         navigate(`/admin`)
         }
         else{

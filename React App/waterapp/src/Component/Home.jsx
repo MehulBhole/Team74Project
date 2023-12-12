@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import img1 from "./images/img1.jpg";
 import img2 from "./images/img2.jpg";
 import img3 from "./images/img3.jpg";
-import { Container } from 'react-bootstrap';
+
 
 export function Home() {
   const imgStyle = {
@@ -11,8 +11,8 @@ export function Home() {
     height: 'auto',
   };
   const mainContainerStyle = {
-    backgroundColor: '#f2f2f2', // Set your desired background color
-    padding: '20px', // Adjust the padding as needed
+    backgroundColor: '#f2f2f2', 
+    padding: '20px', 
   };
 
   const footerStyle = {

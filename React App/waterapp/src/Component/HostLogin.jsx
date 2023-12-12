@@ -18,9 +18,15 @@ export function HostLogin() {
     e.preventDefault();
     try {
       const response = await HostServices(host);
-      console.log(response);
+      
       setIsSubmitted(true);
-      navigate(`/hostapproval`);
+      if(response.data !== "NOTOK")
+      {
+        navigate(`/hostapproval`);
+      }
+      else{
+        navigate(`/hostpage`);
+      }
     } catch (error) {
       setIsSubmitted(false);
       console.error(error);

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
-import { FetchData } from "../Services/Admindata";
+
+import { FetchDataUser } from "../Services/Userdata";
 
 export function Userview()
 {
@@ -8,7 +9,7 @@ export function Userview()
           async function populateData()
           {
             try {
-                const data = await FetchData();
+                const data = await FetchDataUser();
                 setUserdata(data);
                 console.log(data);
             } catch (error) {

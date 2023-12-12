@@ -39,6 +39,8 @@ export function AdminDataInput()
             e.preventDefault();
             console.log(sectors);
           const response = await SendDataAdmin(sectors);
+          console.log(response);
+        
           await populateData();
           } catch (error) {
             console.log(error);
